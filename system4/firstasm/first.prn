@@ -1,0 +1,57 @@
+ARM GAS  /tmp/ccnCrWSJ.s 			page 1
+
+
+   1              	# 1 "first.S"
+   1              	@
+   1              	...
+   0              	
+   0              	
+   1              	/* Copyright (C) 1991-2014 Free Software Foundation, Inc.
+   2              	@ My first assembly language program
+   3              	@Name: Nic Wiggins
+   4              	@
+   5              	
+   6              	.text
+   7              	.global first
+   8              	.global second
+   9              	
+  10              	first:
+  11              	@  mov r1,r0
+  12              	@  add r0,r0,r1
+  13              	@  add r0,r0,r1
+  14              	
+  15 0000 0010A0E3 	  mov r1, #0 @0 cnt
+  16 0004 0020A0E3 	  mov r2,#0 @i
+  17              	forloop:
+  18 0008 203052E2 	  subs r3,r2,#32
+  19 000c 0500000A 	  beq loopend
+  20              	  
+  21 0010 013010E2 	  ands r3,r0,#1  @r0 & 1
+  22 0014 01108112 	  addne r1,r1,#1 @cnt++
+  23 0018 A000A0E1 	  lsr r0,r0,#1  @value >>=1
+  24              	
+  25              	
+  26              	
+  27 001c 012082E2 	  add r2,r2,#1    @i++
+  28 0020 F8FFFFEA 	  b forloop
+  29              	
+  30 0024 1EFF2FE1 	  bx lr
+  31              	loopend:
+  32 0028 0100A0E1 	  mov r0,r1
+  33 002c 1EFF2FE1 	  bx lr
+  34              	
+  35              	second:
+  36 0030 010080E0 	  add r0,r0,r1
+  37 0034 1EFF2FE1 	  bx lr
+ARM GAS  /tmp/ccnCrWSJ.s 			page 2
+
+
+DEFINED SYMBOLS
+             first.S:10     .text:00000000 first
+             first.S:35     .text:00000030 second
+             first.S:15     .text:00000000 $a
+             first.S:17     .text:00000008 forloop
+             first.S:31     .text:00000028 loopend
+                   .debug_aranges:0000000c $d
+
+NO UNDEFINED SYMBOLS
